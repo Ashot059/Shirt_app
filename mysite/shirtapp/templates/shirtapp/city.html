@@ -1,0 +1,120 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Shirt shop</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'shirtapp/css/city.css' %}">
+</head>
+<body>
+<div class="navigation">
+    <ul>
+        <li><a href="{% url 'base' %}">General</a></li>
+        <li><a href="">Assortment</a></li>
+        <li><a href="">About Us</a></li>
+        <li><a href="">Contacts</a></li>
+        <li><a href="">Comments</a></li>
+    </ul>
+</div>
+<div class="pro-banner-cate6 container">
+    <div id="groups_filter ">
+        <div id="clubs_logo_list">
+            <div class="clubs_logo">
+                <a href="{% url 'tobarcelona' %}">
+                    <img src="{% static 'shirtapp/images/barsa.png' %}" alt="barcelona">
+                </a>
+            </div>
+            <div class="clubs_logo">
+                <a href="{% url 'toreal' %}">
+                    <img src="{% static 'shirtapp/images/real.png' %}" alt="real">
+                </a>
+            </div>
+            <div class="clubs_logo">
+                <a href="{% url 'tocity' %}">
+                    <img src="{% static 'shirtapp/images/city.png' %}" alt="mancity">
+                </a>
+            </div>
+            <div class="clubs_logo">
+                <a href="{% url 'tountd' %}">
+                    <img src="{% static 'shirtapp/images/manu.png' %}" alt="manuntd">
+                </a>
+            </div>
+            <div class="clubs_logo">
+                <a href="{% url 'toliverpool' %}">
+                    <img src="{% static 'shirtapp/images/liverpool.png' %}" alt="liverpool">
+                </a>
+            </div>
+            <div class="clubs_logo">
+                <a href="{% url 'todvb' %}">
+                    <img src="{% static 'shirtapp/images/dortmund.png' %}" alt="dortmund">
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="sidebar">
+    <ul>
+        <li><a href="">Spanish Clubs</a></li>
+        <li><a href="">Italian Clubs</a></li>
+        <li><a href="">English Clubs</a></li>
+        <li><a href="">Germany Clubs</a></li>
+    </ul>
+</div>
+<div class="shirt-section">
+    <!-- First Row of T-shirt Models -->
+    <div class="t-shirt-container">
+        <!-- T-shirt Model 1 -->
+        <div class="t-shirt">
+            <img src="{% static 'shirtapp/images/mc1.png' %}" alt="T-shirt Model 1">
+            <div class="buy-button">
+                <a href="#" class="buy-link">Buy Now</a>
+            </div>
+        </div>
+
+        <!-- T-shirt Model 2 -->
+        <div class="t-shirt">
+            <img src="{% static 'shirtapp/images/mc2.png' %}" alt="T-shirt Model 2">
+            <div class="buy-button">
+                <a href="#" class="buy-link">Buy Now</a>
+            </div>
+        </div>
+
+        <!-- T-shirt Model 3 -->
+        <div class="t-shirt">
+            <img src="{% static 'shirtapp/images/mc3.png' %}" alt="T-shirt Model 3">
+            <div class="buy-button">
+                <a href="#" class="buy-link">Buy Now</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Second Row of T-shirt Models (Identical to the First Row) -->
+    <div class="t-shirt-container">
+        <!-- T-shirt Model 1 -->
+        <div class="t-shirt">
+            <img src="{% static 'shirtapp/images/mc4.png' %}" alt="T-shirt Model 1">
+            <div class="buy-button">
+                <a href="#" class="buy-link">Buy Now</a>
+            </div>
+        </div>
+
+        <!-- T-shirt Model 2 -->
+        <div class="t-shirt">
+            <img src="{% static 'shirtapp/images/mc5.png' %}" alt="T-shirt Model 2">
+            <div class="buy-button">
+                <a href="#" class="buy-link">Buy Now</a>
+            </div>
+        </div>
+
+        <!-- T-shirt Model 3 -->
+        <div class="t-shirt">
+            <img src="{% static 'shirtapp/images/mc6.png' %}" alt="T-shirt Model 3">
+            <div class="buy-button">
+                <a href="#" class="buy-link">Buy Now</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

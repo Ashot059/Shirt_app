@@ -1,0 +1,181 @@
+body::before {
+    content: "";
+    background-image: url('/static/shirtapp/images/untd.png');
+    background-size: cover;
+    background-position: center center; /* Center the background image */
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0.7; /* Adjust the opacity (0.7 is 70% transparent) */
+    z-index: -1;
+}
+
+.pro-banner-cate6 {
+    text-align: center; /* Center-align the content */
+    margin-top: 20px; /* Adjust the top margin as needed for spacing */
+}
+
+#clubs_logo_list {
+    display: flex;
+    justify-content: center; /* Center-align the club logos horizontally */
+    align-items: center; /* Center-align vertically within the container */
+    padding-top: 70px;
+}
+
+.clubs_logo {
+    margin: 0 10px; /* Adjust horizontal spacing between logos */
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+}
+
+.clubs_logo img {
+    max-width: 100px; /* Set the maximum width for the logo images */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.navigation {
+    background-color: rgba(0, 0, 0, 0.5); /* Background color with transparency */
+    padding: 30px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+}
+
+.navigation ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    display: flex; /* Display the navigation items horizontally */
+    justify-content: center; /* Center-align the navigation items horizontally */
+}
+
+.navigation li {
+    margin-right: 30px;
+    font-size: large;
+}
+
+.navigation a {
+    text-decoration: none;
+    color: white;
+}
+/* Sidebar styles */
+.sidebar {
+    background-color: rgba(0, 0, 0, 0.5); /* Background color with transparency */
+    width: 250px; /* Adjust the width as needed */
+    position: fixed;
+    top: 87px;
+    left: 0;
+    height: 25%; /* Make it full height */
+    z-index: 1;
+    padding-top: 20px;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.sidebar li {
+    margin: 10px 0;
+    text-align: center;
+}
+
+.sidebar a {
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    display: block;
+    padding: 10px;
+    transition: background-color 0.3s; /* Add a smooth background color transition */
+    line-height: 1.5; /* Adjust the line height to lower the text */
+}
+
+.sidebar a:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Highlight on hover */
+}
+
+/* Add margin-top to lower the text */
+.sidebar a span {
+    margin-top: 5px; /* Adjust the margin-top as needed */
+    display: block;
+}
+/* CSS styles for the shirt section */
+.shirt-section {
+    display: flex;
+    flex-wrap: wrap; /* Allows shirts to wrap to the next line if there are many */
+    justify-content: center;
+    margin-top: 20px;
+}
+
+/* CSS for centering the T-shirt container */
+.t-shirt-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+/* CSS for T-shirt models */
+.t-shirt {
+    text-align: center;
+    margin: 0 10px; /* Adjust spacing between T-shirt models */
+    padding: 10px;
+    border: 2px solid #000; /* Add a black outline */
+}
+
+.t-shirt img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* CSS for the Buy buttons */
+.buy-button {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.buy-link {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.buy-link:hover {
+    background-color: #0056b3;
+}
+
+
+/* CSS for the Buy buttons */
+.buy-button {
+    text-align: center;
+    margin-top: 10px; /* Adjust the spacing between the image and button */
+}
+
+.buy-link {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff; /* Button background color */
+    color: #fff; /* Button text color */
+    text-decoration: none;
+    border-radius: 5px; /* Optional: Add rounded corners */
+    font-weight: bold;
+    transition: background-color 0.3s ease; /* Smooth color transition on hover */
+}
+
+.buy-link:hover {
+    background-color: #0056b3; /* Button background color on hover */
+}
