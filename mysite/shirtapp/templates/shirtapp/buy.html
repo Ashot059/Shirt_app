@@ -1,53 +1,18 @@
-{% load static %}
-<!DOCTYPE html>
-<html>
-<head>
-    <title>T-shirt Product Page</title>
-</head>
-<body>
-<!-- Модальное окно для выбора размера и ввода информации -->
-    <div id="purchase-modal" class="modal">
-        <div class="modal-content">
-            <span class="close" id="close-button">&times;</span>
-            <h2>Select Size</h2>
-            <select id="size-select">
-                <option value="S">S</option>
-                <option value="M">M</option>
-                <option value="L">L</option>
-                <option value="XL">XL</option>
-                <option value="XXL">XXL</option>
-            </select>
+<h1>Оформление заказа</h1>
+<h2>Select Size</h2>
+<select id="size-select">
+    <option value="S">S</option>
+    <option value="M">M</option>
+    <option value="L">L</option>
+    <option value="XL">XL</option>
+    <option value="XXL">XXL</option>
+</select>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Submit</button>
+</form>
+{% if message %}
+<p>{{ message }}</p>
+{% endif %}
 
-            <h2>Enter Your Information</h2>
-            <form id="purchase-form">
-                <input type="text" name="name" placeholder="Name" required>
-                <input type="text" name="phone" placeholder="Phone Number" required>
-                <input type="text" name="address" placeholder="Delivery Address" required>
-                <input type="text" name="credit-card" placeholder="Credit Card Number" required>
-                <button type="submit">Submit</button>
-            </form>
-        </div>
-    </div>
-
-    <script>
-        // JavaScript для открытия и закрытия модального окна
-        var buyButton = document.getElementById("buy-button");
-        var modal = document.getElementById("purchase-modal");
-        var closeButton = document.getElementById("close-button");
-
-        buyButton.addEventListener("click", function() {
-            modal.style.display = "block";
-        });
-
-        closeButton.addEventListener("click", function() {
-            modal.style.display = "none";
-        });
-
-        window.addEventListener("click", function(event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
-        });
-    </script>
-</body>
-</html>

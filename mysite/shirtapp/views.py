@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from .forms import BuyForm
 
 
 def base(request):
@@ -30,4 +31,15 @@ def toliverpool(request):
 
 
 def buy(request):
-    return render(request, 'shirtapp/buy.html')
+    if request.method == 'POST':
+        form = BuyForm(request.POST)
+        if form.is_valid():
+            # Здесь вы можете обработать данные заказа, например, сохранить их в базе данных
+            message = "Покупка прошла успешно."
+        else:
+            message = "Пожалуйста, исправьте ошибки в форме."
+    else:
+        form = BuyForm()
+        message = ""
+
+    return render(request, 'shirtapp/buy.html', {'form': form, 'message': message})
