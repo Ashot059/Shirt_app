@@ -27,3 +27,7 @@ def tountd(request):
 
 def toliverpool(request):
     return render(request, 'shirtapp/liv.html')
+
+
+def buy(request):
+    return render(request, 'shirtapp/buy.html')

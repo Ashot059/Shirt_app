@@ -9,4 +9,6 @@ urlpatterns = [
     path('borussiadortmund/', views.todvb, name='todvb'),
     path('united/', views.tountd, name='tountd'),
     path('liverpool/', views.toliverpool, name='toliverpool'),
+    path('buy/', views.buy, name='buy'),
+
 ]
