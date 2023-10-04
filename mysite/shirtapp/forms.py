@@ -1,6 +1,8 @@
 from django import forms
 from django.core.exceptions import ValidationError
 import re
+from .models import Feedback
+from .models import Buyer
 
 
 def validate_name(value):
@@ -37,3 +39,15 @@ class BuyForm(forms.Form):
     delivery_address = forms.CharField(label='Адрес доставки', required=True,
                                        widget=forms.TextInput(attrs={'placeholder': 'Ваш адрес доставки'}),
                                        validators=[validate_delivery_address])
+
+
+class FeedbackForm(forms.ModelForm):
+    class Meta:
+        model = Feedback
+        fields = '__all__'
+
+
+class BuyerForm(forms.ModelForm):
+    class Meta:
+        model = Buyer
+        fields = ['name', 'email', 'address', 'shirt_size']

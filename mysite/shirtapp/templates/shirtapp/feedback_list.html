@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Feedback List</title>
+</head>
+<body>
+    <h1>Feedback List</h1>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Last Name</th>
+                <th>First Name</th>
+                <th>Middle Name</th>
+                <th>Email</th>
+                <th>Alternative Email</th>
+                <th>Country</th>
+                <th>Comment</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for feedback in feedback_data %}
+                <tr>
+                    <td>{{ feedback.lastname }}</td>
+                    <td>{{ feedback.firstname }}</td>
+                    <td>{{ feedback.middlename }}</td>
+                    <td>{{ feedback.email }}</td>
+                    <td>{{ feedback.emailAlt }}</td>
+                    <td>{{ feedback.country }}</td>
+                    <td>{{ feedback.comment }}</td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="7">No feedback data available.</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

@@ -1,9 +1,18 @@
-from django.shortcuts import render
+import time
+from django.contrib import messages
+from .forms import BuyerForm
 from .forms import BuyForm
+from django.shortcuts import render, redirect
+from .forms import FeedbackForm
+from .models import Feedback
 
 
 def base(request):
     return render(request, 'shirtapp/base.html')
+
+
+def feedback(request):
+    return render(request, 'shirtapp/feedback.html')
 
 
 def tobarcelona(request):
@@ -32,14 +41,35 @@ def toliverpool(request):
 
 def buy(request):
     if request.method == 'POST':
-        form = BuyForm(request.POST)
+        form = BuyerForm(request.POST)
         if form.is_valid():
-            # Здесь вы можете обработать данные заказа, например, сохранить их в базе данных
-            message = "Покупка прошла успешно."
-        else:
-            message = "Пожалуйста, исправьте ошибки в форме."
+            form.save()  # Save the buyer's data to the database
+            return redirect('success_page')  # Redirect to a success page or another appropriate page
     else:
-        form = BuyForm()
-        message = ""
+        form = BuyerForm()
 
-    return render(request, 'shirtapp/buy.html', {'form': form, 'message': message})
+    return render(request, 'shirtapp/buy.html', {'form': form})
+
+
+def feedback_view(request):
+    if request.method == 'POST':
+        form = FeedbackForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Your review is accepted')  # Add success message
+            time.sleep(1)
+            return redirect('base')  # Redirect to the main page
+
+    else:
+        form = FeedbackForm()
+
+    return render(request, 'shirtapp/feedback.html', {'form': form})
+
+
+def feedback_list(request):
+    feedback_data = Feedback.objects.all()
+    return render(request, 'shirtapp/feedback_list.html', {'feedback_data': feedback_data})
+
+
+def success_page(request):
+    return render(request, 'shirtapp/success.html')
