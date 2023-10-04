@@ -10,9 +10,15 @@ class Feedback(models.Model):
     country = models.CharField(max_length=100, blank=True)
     comment = models.TextField()
 
+    def __str__(self):
+        return self.firstname
+
 
 class Buyer(models.Model):
     name = models.CharField(max_length=255)
     email = models.EmailField()
     address = models.TextField()
     shirt_size = models.CharField(max_length=10)
+
+    def __str__(self):
+        return self.name
