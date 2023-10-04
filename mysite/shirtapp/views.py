@@ -1,7 +1,6 @@
 import time
 from django.contrib import messages
 from .forms import BuyerForm
-from .forms import BuyForm
 from django.shortcuts import render, redirect
 from .forms import FeedbackForm
 from .models import Feedback

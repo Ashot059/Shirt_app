@@ -8,37 +8,23 @@ from .models import Buyer
 def validate_name(value):
     pattern = r'^[a-zA-Z -]+$'
     if not re.match(pattern, value):
-        raise ValidationError("Имя может содержать только буквы, знаки '-' и пробелы.")
+        raise ValidationError("The name can only contain letters, '-' and spaces.")
 
 
 def validate_phone_number(value):
     if not value.isdigit() or len(value) != 9:
-        raise ValidationError("Номер телефона должен состоять из 9 цифр.")
+        raise ValidationError("The phone number must consist of 9 digits.")
 
 
 def validate_credit_card_number(value):
     if not value.isdigit() or len(value) != 16:
-        raise ValidationError("Номер кредитной карты должен состоять из 16 цифр.")
+        raise ValidationError("The credit card number must be 16 digits.")
 
 
 def validate_delivery_address(value):
     pattern = r'^[a-zA-Z0-9/ -]+$'
     if not re.match(pattern, value):
-        raise ValidationError("Адрес доставки может содержать только буквы, цифры и знаки '/', '-'.")
-
-
-class BuyForm(forms.Form):
-    name = forms.CharField(label='Имя', max_length=100, required=True,
-                           widget=forms.TextInput(attrs={'placeholder': 'Ваше имя'}), validators=[validate_name])
-    phone_number = forms.CharField(label='Номер телефона', max_length=9, required=True,
-                                   widget=forms.TextInput(attrs={'placeholder': 'Ваш номер телефона'}),
-                                   validators=[validate_phone_number])
-    credit_card_number = forms.CharField(label='Номер кредитной карты', max_length=16, required=True,
-                                         widget=forms.TextInput(attrs={'placeholder': 'Номер кредитной карты'}),
-                                         validators=[validate_credit_card_number])
-    delivery_address = forms.CharField(label='Адрес доставки', required=True,
-                                       widget=forms.TextInput(attrs={'placeholder': 'Ваш адрес доставки'}),
-                                       validators=[validate_delivery_address])
+        raise ValidationError("The delivery address can only contain letters, numbers and the signs '/', '-'.")
 
 
 class FeedbackForm(forms.ModelForm):
@@ -50,4 +36,11 @@ class FeedbackForm(forms.ModelForm):
 class BuyerForm(forms.ModelForm):
     class Meta:
         model = Buyer
-        fields = ['name', 'email', 'address', 'shirt_size']
+        fields = ['name', 'email', 'address', 'shirt_size', 'credit_card_number', 'valid_date', 'cvv']
+
+    name = forms.CharField(label='Name', max_length=20, validators=[validate_name])
+    address = forms.CharField(label='Address', max_length=30, validators=[validate_delivery_address])
+    credit_card_number = forms.CharField(label='Credit Card Number', max_length=16,
+                                         validators=[validate_credit_card_number])
+    valid_date = forms.CharField(label='Valid Date', max_length=4)
+    cvv = forms.CharField(label='CVV', max_length=3)
