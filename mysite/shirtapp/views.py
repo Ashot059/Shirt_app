@@ -73,3 +73,7 @@ def feedback_list(request):
 
 def success_page(request):
     return render(request, 'shirtapp/success.html')
+
+
+def about(request):
+    return render(request, 'shirtapp/about.html')

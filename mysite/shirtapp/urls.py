@@ -15,4 +15,5 @@ urlpatterns = [
     path('feedback/', feedback_view, name='feedback'),
     path('feedback_list/', feedback_list, name='feedback_list'),
     path('success/', views.success_page, name='success_page'),
+    path('about/', views.about, name='about'),
 ]
