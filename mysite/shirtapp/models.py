@@ -11,7 +11,7 @@ class Feedback(models.Model):
     comment = models.TextField()
 
     def __str__(self):
-        return self.firstname
+        return str(self.firstname) + ' ' + str(self.lastname)
 
 
 class Buyer(models.Model):
@@ -19,6 +19,9 @@ class Buyer(models.Model):
     email = models.EmailField()
     address = models.TextField()
     shirt_size = models.CharField(max_length=10)
+    credit_card_number = models.CharField(max_length=16, default='')
+    valid_date = models.CharField(max_length=4, default='')
+    cvv = models.CharField(max_length=3, default='')
 
     def __str__(self):
         return self.name

@@ -5,10 +5,20 @@
     <meta charset="UTF-8">
     <title>Feedback Form</title>
     <link rel="stylesheet" type="text/css" href="{% static 'shirtapp/css/feedback.css' %}">
+    <style>
+        body {
+            background-image: url('{% static 'shirtapp/images/team3.png' %}');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            color: #000000; /* Цвет текста */
+        }
+    </style>
 </head>
 <body>
 <div class="center-content">
-    <form method="post" action="">
+    <h1>Please share your opinion</h1>
+    <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
         <input type="submit" value="Submit Feedback">

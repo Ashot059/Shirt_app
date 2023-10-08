@@ -55,9 +55,7 @@ def feedback_view(request):
         form = FeedbackForm(request.POST)
         if form.is_valid():
             form.save()
-            messages.success(request, 'Your review is accepted')  # Add success message
-            time.sleep(1)
-            return redirect('base')  # Redirect to the main page
+            return redirect('feedback_success')  # Redirect to the main page
 
     else:
         form = FeedbackForm()
@@ -72,6 +70,10 @@ def feedback_list(request):
 
 def success_page(request):
     return render(request, 'shirtapp/success.html')
+
+
+def feedback_success(request):
+    return render(request, 'shirtapp/feedback_success.html')
 
 
 def about(request):
