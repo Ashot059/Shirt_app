@@ -34,13 +34,31 @@ class FeedbackForm(forms.ModelForm):
 
 
 class BuyerForm(forms.ModelForm):
+    SHIRT_SIZE_CHOICES = (
+        ('XS', 'Extra Small (XS)'),
+        ('S', 'Small (S)'),
+        ('M', 'Medium (M)'),
+        ('L', 'Large (L)'),
+        ('XL', 'Extra Large (XL)'),
+        ('XXL', 'Double Extra Large (XXL)'),
+    )
+
     class Meta:
         model = Buyer
         fields = ['name', 'email', 'address', 'shirt_size', 'credit_card_number', 'valid_date', 'cvv']
 
-    name = forms.CharField(label='Name', max_length=20, validators=[validate_name])
-    address = forms.CharField(label='Address', max_length=30, validators=[validate_delivery_address])
+    name = forms.CharField(label='Name', max_length=20, validators=[validate_name],
+                           widget=forms.TextInput(attrs={'placeholder': 'Enter your name'}))
+    email = forms.CharField(label='Email', max_length=50,
+                            widget=forms.TextInput(attrs={'placeholder': 'Enter your email'}))
+    address = forms.CharField(label='Address', max_length=30, validators=[validate_delivery_address],
+                              widget=forms.TextInput(attrs={'placeholder': 'Enter your address'}))
+    shirt_size = forms.ChoiceField(label='Shirt Size', choices=SHIRT_SIZE_CHOICES)
     credit_card_number = forms.CharField(label='Credit Card Number', max_length=16,
-                                         validators=[validate_credit_card_number])
-    valid_date = forms.CharField(label='Valid Date', max_length=4)
-    cvv = forms.CharField(label='CVV', max_length=3)
+                                         validators=[validate_credit_card_number],
+                                         widget=forms.TextInput(
+                                             attrs={'placeholder': 'Enter your Credit card numbers'}))
+    valid_date = forms.CharField(label='Valid Date', max_length=5,
+                                 widget=forms.TextInput(attrs={'placeholder': 'MM/YY'}))
+    cvv = forms.CharField(label='CVV', max_length=3, widget=forms.PasswordInput(render_value=True,
+                          attrs={'placeholder': '***'}))
