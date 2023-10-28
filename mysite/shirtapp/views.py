@@ -1,5 +1,3 @@
-import time
-from django.contrib import messages
 from .forms import BuyerForm
 from django.shortcuts import render, redirect
 from .forms import FeedbackForm
